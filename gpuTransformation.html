@@ -78,6 +78,7 @@
         
         let transX = 0 , transY =0 , transZ = 0
         let roX = 0 , roY = 0 , roZ = 0
+        let scaleX = 0 ,scaleY = 0 ,scaleZ = 0 ;
         
         function animate(t) {
             cube.position.x += transX; 
@@ -87,6 +88,7 @@
             cube.rotation.x=t*roX
             cube.rotation.y = t*roY
             cube.rotation.z = t*roZ
+
 
             sphere.rotation.y = t * 0.001;
 
@@ -117,23 +119,36 @@
             break;
             case 'z' :
             roX>0 ? roX=0 : roX = 0.001
-            break
+            break ;
             case 'x' :
             roY>0 ? roY=0 : roY = 0.001
-            break
+            break ;
             case 'c' :
             roZ>0 ? roZ=0 : roZ = 0.001
-            break
+            break ;
+            case '1':
+            cube.scale.x += 0.1; break;
+            case '2':
+            cube.scale.y += 0.1; break;
+            case '3':
+            cube.scale.z += 0.1; break;
+            case '4':
+            cube.scale.x -= 0.1; break;
+            case '5':
+            cube.scale.y -= 0.1; break;
+            case '6':
+            cube.scale.z -= 0.1; break;
         }   
     })
     window.addEventListener('keyup' , e=>{
-       if(e.key==='w'||e.key==='W'||e.key==='s'||e.key==='S'){
+       if(e.key==='w'||e.key==='s'){
         transZ=0
-       }else if(e.key==='a'||e.key==='A'||e.key==='d'||e.key==='D'){
+       }else if(e.key==='a'||e.key==='d'){
         transX=0
        }else if(e.key==='q' || e.key ==='e'){
         transY =0 
        }
+
     })
     </script>
 </body>
