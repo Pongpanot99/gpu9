@@ -76,18 +76,22 @@
         plane.receiveShadow = true; 
         scene.add(plane);
         
-        let transX = 0 , transY =0 , transZ = 0
-        let roX = 0 , roY = 0 , roZ = 0
+        let transX = 0 , transY =0 , transZ = 0;
+        let roX = 0 , roY = 0 , roZ = 0;
         let scaleX = 0 ,scaleY = 0 ,scaleZ = 0 ;
         
         function animate(t) {
             cube.position.x += transX; 
             cube.position.y +=  transY; 
-            cube.position.z += transZ
+            cube.position.z += transZ;
 
-            cube.rotation.x=t*roX
-            cube.rotation.y = t*roY
-            cube.rotation.z = t*roZ
+            cube.rotation.x=t*roX;
+            cube.rotation.y = t*roY;
+            cube.rotation.z = t*roZ;
+
+            cube.scale.x += scaleX; 
+            cube.scale.y += scaleY; 
+            cube.scale.z += scaleZ; 
 
 
             sphere.rotation.y = t * 0.001;
@@ -127,17 +131,17 @@
             roZ>0 ? roZ=0 : roZ = 0.001
             break ;
             case '1':
-            cube.scale.x += 0.1; break;
+            scaleX = 0.1; break;
             case '2':
-            cube.scale.y += 0.1; break;
+            scaleY = 0.1; break;
             case '3':
-            cube.scale.z += 0.1; break;
+            scaleZ = 0.1; break;
             case '4':
-            cube.scale.x -= 0.1; break;
+            scaleX = -0.1; break;
             case '5':
-            cube.scale.y -= 0.1; break;
+            scaleY = -0.1; break;
             case '6':
-            cube.scale.z -= 0.1; break;
+            scaleZ = -0.1; break;
         }   
     })
     window.addEventListener('keyup' , e=>{
@@ -147,7 +151,14 @@
         transX=0
        }else if(e.key==='q' || e.key ==='e'){
         transY =0 
+       }else if(e.key==='1' || e.key ==='4'){
+        scaleX = 0
+       }else if(e.key==='2' || e.key ==='5'){
+        scaleY = 0
+       }else if(e.key==='3' || e.key ==='6'){
+        scaleZ = 0
        }
+
 
     })
     </script>
